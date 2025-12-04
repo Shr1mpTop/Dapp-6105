@@ -27,6 +27,9 @@ body {
     margin-bottom: 20px; /* Adds space below the image */
     display: block;
 }
+form {
+    color: #1142f0;
+}
 
 p {
     font-size: 18px;
