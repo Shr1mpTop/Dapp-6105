@@ -14,13 +14,14 @@ def index():
 @app.route("/main", methods=["GET","POST"])
 def main():
     name = request.form.get("q")
-    t = datetime.datetime.now()
-    conn = sqlite3.connect('user.db')
-    c = conn.cursor()
-    c.execute('INSERT INTO user (name,timestamp) VALUES(?,?)',(name,t))
-    conn.commit()
-    c.close()
-    conn.close()
+    if name:
+        t = datetime.datetime.now()
+        conn = sqlite3.connect('user.db')
+        c = conn.cursor()
+        c.execute('INSERT INTO user (name,timestamp) VALUES(?,?)',(name,t))
+        conn.commit()
+        c.close()
+        conn.close()
     return(render_template("main.html"))
 
 @app.route("/paynow", methods=["GET","POST"])
@@ -34,15 +35,20 @@ def userlog():
     c.execute('''select * from user''')
     r=""
     for row in c:
-        print(row)
-        r = r + str(row)
+        r = r + str(row) + "<br>"
     c.close()
     conn.close()
     return(render_template("userlog.html",r=r))
 
 @app.route("/deleteuserlog", methods=["GET","POST"])
 def deleteuser():
-    return(render_template("deleteuser.html"))
+    conn = sqlite3.connect('user.db')
+    c = conn.cursor()
+    c.execute('DELETE FROM user')
+    print(c.description)
+    c.close
+    conn.close()
+    return(render_template("deleteuserlog.html"))
 
 if __name__ == "__main__":
     app.run()
