@@ -9,19 +9,24 @@ sqlite3.register_converter("timestamp", lambda s: datetime.datetime.fromisoforma
 app = Flask(__name__)
 @app.route("/", methods=["GET","POST"])
 def index():
+    global flag
+    flag = 1
     return(render_template("index.html"))
 
 @app.route("/main", methods=["GET","POST"])
 def main():
-    name = request.form.get("q")
-    if name:
-        t = datetime.datetime.now()
-        conn = sqlite3.connect('user.db')
-        c = conn.cursor()
-        c.execute('INSERT INTO user (name,timestamp) VALUES(?,?)',(name,t))
-        conn.commit()
-        c.close()
-        conn.close()
+    global flag
+    if flag == 1:
+        name = request.form.get("q")
+        if name:
+            t = datetime.datetime.now()
+            conn = sqlite3.connect('user.db')
+            c = conn.cursor()
+            c.execute('INSERT INTO user (name,timestamp) VALUES(?,?)',(name,t))
+            conn.commit()
+            c.close()
+            conn.close()
+            flag = 0
     return(render_template("main.html"))
 
 @app.route("/paynow", methods=["GET","POST"])
@@ -41,14 +46,14 @@ def userlog():
     return(render_template("userlog.html",r=r))
 
 @app.route("/deleteuserlog", methods=["GET","POST"])
-def deleteuser():
-    conn = sqlite3.connect('user.db')
-    c = conn.cursor()
-    c.execute('DELETE FROM user')
-    print(c.description)
-    c.close
-    conn.close()
-    return(render_template("deleteuserlog.html"))
+def deleteuserlog():
+        conn = sqlite3.connect('user.db')
+        c = conn.cursor()
+        c.execute('DELETE FROM user')
+        conn.commit()
+        c.close()
+        conn.close()
+        return(render_template("deleteuserlog.html"))
 
 if __name__ == "__main__":
     app.run()
