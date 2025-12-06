@@ -25,7 +25,7 @@
             <form action="/" method="post">
                 <input type="submit" value="Main">
             </form>
-            <div class="results">
+            <div class="results" style="display: none;">
                 <p id="view_payer"></p>
                 <p id="view_payee"></p>
                 <p id="view_amount"></p>
@@ -104,9 +104,15 @@
 
         async function transaction() {
             const result = await contract.methods.view_money().call();
-            document.getElementById('view_payer').innerText = "Payer: " + result[0];
-            document.getElementById('view_payee').innerText = "Payee: " + result[1];
-            document.getElementById('view_amount').innerText = "Amount: " + result[2];
+            const resultsDiv = document.querySelector('.results');
+            if (result[0] !== "0x0000000000000000000000000000000000000000" || result[1] !== "0x0000000000000000000000000000000000000000" || result[2] !== "0") {
+                resultsDiv.style.display = 'block';
+                document.getElementById('view_payer').innerText = "Payer: " + result[0];
+                document.getElementById('view_payee').innerText = "Payee: " + result[1];
+                document.getElementById('view_amount').innerText = "Amount: " + result[2];
+            } else {
+                resultsDiv.style.display = 'none';
+            }
         }
     </script>
 </html>
