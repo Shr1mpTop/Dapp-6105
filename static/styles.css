@@ -1,136 +1,115 @@
-/* 简约蓝色主题 CSS for Ethereum DApp */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* 简约蓝色主题 CSS for Ethereum DApp */ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
-
 .container {
-    width: 100%;
-    max-width: 500px;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    padding: 40px;
-    text-align: center;
+  width: 100%;
+  max-width: 500px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  text-align: center;
 }
-
 h2 {
-    color: #3498db;
-    font-size: 28px;
-    margin-bottom: 30px;
-    font-weight: 600;
+  color: #3498db;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
-
 p {
-    color: #666;
-    margin-bottom: 20px;
-    font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
-
 form {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
-
 input[type="text"],
 input[type="number"] {
-    width: 100%;
-    padding: 14px 18px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    margin-bottom: 15px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
-
 input[type="text"]:focus,
 input[type="number"]:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
-
 input[type="submit"],
 .btn {
-    width: 100%;
-    padding: 14px 24px;
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
 input[type="submit"]:hover,
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
 }
-
 input[type="submit"]:active,
 .btn:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
-
 .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+  margin-bottom: 20px;
+  text-align: left;
 }
-
 .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-    font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
 }
-
 .results {
-    margin-top: 25px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    text-align: left;
+  margin-top: 25px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: left;
 }
-
 .results p {
-    margin: 8px 0;
-    padding: 10px;
-    background: #fff;
-    border-left: 4px solid #3498db;
-    border-radius: 4px;
-    color: #333;
+  margin: 8px 0;
+  padding: 10px;
+  background: #fff;
+  border-left: 4px solid #3498db;
+  border-radius: 4px;
+  color: #333;
 }
-
-/* 响应式设计 */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    .container {
-        padding: 25px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    input[type="submit"],
-    .btn {
-        padding: 16px;
-    }
+/* 响应式设计 */ @media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    padding: 25px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  input[type="submit"],
+  .btn {
+    padding: 16px;
+  }
 }
